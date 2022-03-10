@@ -1,0 +1,31 @@
+{
+  "name": "undraw-js",
+  "version": "0.0.1",
+  "description": "Js library for Undraw illustration",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "build":"webpack --config webpack.config.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BOCOVO/undraw-js.git"
+  },
+  "keywords": [
+    "undraw",
+    "ullistration",
+    "js",
+    "svg",
+    "image"
+  ],
+  "author": "Juste Bocovo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BOCOVO/undraw-js/issues"
+  },
+  "homepage": "https://github.com/BOCOVO/undraw-js#readme",
+  "devDependencies": {
+    "webpack": "^5.70.0",
+    "webpack-cli": "^4.9.2"
+  }
+}
