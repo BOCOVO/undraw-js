@@ -24,7 +24,7 @@ const prototype = {
         const errorHandler = () => {
             if (count < this.maxRetry) { 
                 setTimeout(() => {
-                    this.loadSvg(illName, callBack, fallback, illName, count + 1)
+                    this.loadSvg(url, callBack, fallback, illName, count + 1)
                 }, this.retryDelay)
             }
             else {
