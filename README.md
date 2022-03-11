@@ -7,7 +7,7 @@ Undraw-js is a library allow you to add [undraw.co](undraw.co) illustration to w
 - Add js script to your page
 
     ```html
-    <script src="https://unpkg.com/undraw-js/0.0.1/index.js"></script>
+    <script src="https://unpkg.com/undraw-js@1.0.0/index.js"></script>
     ```
     This file load the svg file and add the main color you specify
 
@@ -25,12 +25,15 @@ Undraw-js is a library allow you to add [undraw.co](undraw.co) illustration to w
 
 - Add this script to the page
 
-    ```js
-        UndrawJs.init()
+    ```html
+    <script>
+        UndrawJS.init()
+    </script>
     ```
-    or ( For more customisation )
+    or ( for more customisation )
 
-    ```js
+    ```html
+    <script>
         const options = {
             nameAttr: "data-ujs-name", // Custom attribute of nodes that specifies the name of the illustration
             colorAttr: "data-ujs-color", // Custom attribute of nodes that specifies the main color
@@ -39,9 +42,15 @@ Undraw-js is a library allow you to add [undraw.co](undraw.co) illustration to w
             defaultColor: "#f00" // To specify a default color
         };
 
-        UndrawJs.init(options);
+        UndrawJS.init(options);
+    </script>
     ```
 
 ## How to find illustration name ? 
  
- Go to [undraw.co](https://undraw.co/illustrations) add illustration you need and copy its name
+ Go to [undraw.co](https://undraw.co/illustrations) find illustration you need and copy its name
+
+## Notes
+> Only the illustrations you add to your page are loaded.
+
+>There are over 1300 illustrations that you can use

@@ -8,7 +8,7 @@ const prototype = {
         colorAttr: "data-ujs-color",// Custom attribute of nodes that specifies the main color
         doneAttr: "data-ujs-done", // Custom attribute of nodes that specifies if the illustration is addded to the node
         fallbackAttr: "data-ujs-fall-img", // Custom attribute of nodes that specifies the fall image
-        version: "0.0.1"
+        version: "1.0.0"
     },
     maxRetry: 2,
     retryDelay: 3000,
@@ -85,8 +85,10 @@ const prototype = {
                         if (fallImage) node.src = fallImage
                     }, illName)
             }
+            else console.error("No illustration name")
         }
     }
 }
 
 window.UndrawJS = Object.setPrototypeOf({}, prototype)
+window.UndrawJs = window.UndrawJS // Creating aliase
