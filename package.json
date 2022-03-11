@@ -1,11 +1,11 @@
 {
   "name": "undraw-js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Js library for Undraw illustration",
   "main": "index.js",
   "scripts": {
     "test": "test",
-    "build":"webpack --config webpack.config.js"
+    "build": "webpack --config webpack.config.js"
   },
   "repository": {
     "type": "git",
