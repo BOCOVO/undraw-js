@@ -1,6 +1,6 @@
 {
   "name": "undraw-js",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "Js library for Undraw illustration",
   "main": "index.js",
   "scripts": {

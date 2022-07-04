@@ -1,14 +1,22 @@
 # Welcome to this library
 
-Undraw-js is a library allow you to add [undraw.co](undraw.co) illustration to web page with a specifique color
+Undraw-js is a library allow you to add [undraw.co](https://undraw.co/illustrations) illustration to web page with a specifique color
 
 ## How to use it ?
 
-- Add js script to your page
+- Installation
     ```html
     <script src="https://unpkg.com/undraw-js@1.0/index.min.js"></script>
     ```
-    This file load the svg file and add the main color you specified
+    or use yarn or npm
+
+    ```bash
+    $ yarn add undraw-js
+    ```
+
+    ```bash
+    $ npm -i undraw-js
+    ```
 
 - Add some attribute to your `img` element
     ```html
@@ -29,21 +37,27 @@ Undraw-js is a library allow you to add [undraw.co](undraw.co) illustration to w
         UndrawJS.init()
     </script>
     ```
-    or ( for more customisation )
+    or
 
-    ```html
-    <script>
-        const options = {
-            nameAttr: "data-ujs-name", // Custom attribute of nodes that specifies the name of the illustration
-            colorAttr: "data-ujs-color", // Custom attribute of nodes that specifies the main color
-            doneAttr: "data-ujs-done", // Custom attribute of nodes that specifies if the illustration is addded to the node
-            fallbackAttr: "data-ujs-fall-img", // Custom attribute of nodes that specifies the fall image
-            defaultColor: "#f00" // To specify a default color
-        };
-
-        UndrawJS.init(options);
-    </script>
+    ```js
+      import UndrawJs from 'undraw-js'
+      (new UndrawJs()).init()
     ```
+## More customisation
+
+You can provide options to Undraw object
+
+```js
+    const options = {
+        nameAttr: "data-ujs-name", // Custom attribute of nodes that specifies the name of the illustration
+        colorAttr: "data-ujs-color", // Custom attribute of nodes that specifies the main color
+        doneAttr: "data-ujs-done", // Custom attribute of nodes that specifies if the illustration is addded to the node
+        fallbackAttr: "data-ujs-fall-img", // Custom attribute of nodes that specifies the fall image
+        defaultColor: "#f00" // To specify a default color
+    };
+
+    UndrawJS.init(options); // or (new UndrawJs()).init(options) for module user
+```
 
 ## How to find illustration name ? 
  
