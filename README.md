@@ -5,13 +5,12 @@ Undraw-js is a library allow you to add [undraw.co](undraw.co) illustration to w
 ## How to use it ?
 
 - Add js script to your page
-
     ```html
-    <script src="https://unpkg.com/undraw-js@1.0.0/index.js"></script>
+    <script src="https://unpkg.com/undraw-js@1.0/index.min.js"></script>
     ```
-    This file load the svg file and add the main color you specify
+    This file load the svg file and add the main color you specified
 
-- Add `img` element to you page
+- Add some attribute to your `img` element
     ```html
     <img data-ujs-name="Ukraine" data-ujs-color="#f00" />
     ```
@@ -48,9 +47,11 @@ Undraw-js is a library allow you to add [undraw.co](undraw.co) illustration to w
 
 ## How to find illustration name ? 
  
- Go to [undraw.co](https://undraw.co/illustrations) find illustration you need and copy its name
+Go to [undraw.co](https://undraw.co/illustrations) find illustration you need and copy its name
 
 ## Notes
 > Only the illustrations you add to your page are loaded.
 
->There are over 1300 illustrations that you can use
+> Illustration not loaded ? Undraw is constantly evolving. If the illustration does not load, perhaps the version of undraw-js you are using is deployed before the creation of this illustration. To fix this, see if there is a version of undraw-js higher than the version you are using, if it is the last version you are using then wait for a new update. 
+
+> There are over 1300 illustrations that you can use
