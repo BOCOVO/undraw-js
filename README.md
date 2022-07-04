@@ -15,7 +15,7 @@ Undraw-js is a library allow you to add [undraw.co](https://undraw.co/illustrati
     ```
 
     ```bash
-    $ npm -i undraw-js
+    $ npm i undraw-js
     ```
 
 - Add some attribute to your `img` element
