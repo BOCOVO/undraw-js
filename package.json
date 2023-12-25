@@ -3,6 +3,7 @@
   "version": "1.0.4",
   "description": "Js library for Undraw illustration",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "update": "node ./bin/update.js",
     "build": "webpack --config webpack.config.cjs"
