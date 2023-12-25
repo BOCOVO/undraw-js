@@ -8,7 +8,7 @@ const getIllusFromPage = async (page, accumulationList, onChange) => {
   const response = await fetch(MAIN_URL + page)
   if (response.ok) {
     const responseData = await response.json()
-    responseData.illos.forEach(
+    responseData.illus.forEach(
       (item) => accumulationList.push({ image: item.image, title: item.title }),
     )
     if (responseData.hasMore) {
@@ -24,9 +24,9 @@ const getIllusFromPage = async (page, accumulationList, onChange) => {
 const getIllustrationList = async () => {
   const spinner = oraSpinner("Start Loading").start()
   try {
-    const illos = await getIllusFromPage(0, [], (currentPage) => { spinner.text = `Loading page ${currentPage}` })
+    const illus = await getIllusFromPage(0, [], (currentPage) => { spinner.text = `Loading page ${currentPage}` })
     spinner.info("Finish illustration page loading")
-    return illos
+    return illus
   } catch (error) {
     spinner.fail("Load failed")
     throw error

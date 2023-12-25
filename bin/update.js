@@ -1,70 +1,72 @@
-import { Command } from 'commander';
+import { Command } from "commander";
 import { existsSync } from "fs";
-import ora from 'ora';
+import ora from "ora";
 import readline from "readline";
 
-import getIllustrationList from '../utils/getIllustrationList.js';
-import { getIlluFilePath, writeIlluFile } from '../utils/utils.js';
+import getIllustrationList from "../utils/getIllustrationList.js";
+import { getIllusFilePath, writeIllusFile } from "../utils/utils.js";
 
 const program = new Command();
 program
-  .description('Split a string into substrings and display as an array')
-  .option('-a, --all', "Update all illustrations.");
+  .description("Split a string into substrings and display as an array")
+  .option("-a, --all", "Update all illustrations.");
 
 program.parse();
 const updateAll = program.opts().all;
 
-const handleIllus = async (illos) => {
-  const spinner = ora("Start writting file").start()
+const handleIllus = async (illus) => {
+  const spinner = ora("Start writing file").start();
 
-  let newIlluCount = 0
-  const failed = []
-  const illosCount = illos.length
-  for (let i = 0; i < illos.length; i += 1) {
-    const ill = illos[i]
-    spinner.text = `Handling: ${ill.title} ${i + 1}/${illosCount} \n`
-    const exist = existsSync(getIlluFilePath(ill.title))
-    if (!exist) newIlluCount += 1
+  let newIllusCount = 0;
+  const failed = [];
+  const illusCount = illus.length;
+  for (let i = 0; i < illus.length; i += 1) {
+    const ill = illus[i];
+    spinner.text = `Handling: ${ill.title} ${i + 1}/${illusCount} \n`;
+    const exist = existsSync(getIllusFilePath(ill.title));
+
+    if (!exist) newIllusCount += 1;
+
     if (!exist || (exist && updateAll)) {
       try {
         /* eslint-disable no-await-in-loop */
-        await writeIlluFile(ill)
+        await writeIllusFile(ill);
       } catch (error) {
-        failed.push(ill)
-        console.log(`Unable to write ill ${ill.title}`)
-        console.log(error)
+        failed.push(ill);
+        console.info(`Unable to write ill ${ill.title}`);
+        console.error(error);
       }
     }
   }
-  spinner.stop()
-  // stat
-  console.log(`${newIlluCount} new illustration was added`)
+  spinner.stop();
 
-  // handle failed
+  console.info(`${newIllusCount} new illustration was added`);
+
   if (failed.length > 0) {
-    const rl = readline.createInterface(
-      {
-        input: process.stdin,
-        output: process.stdout,
-      },
-    )
-    console.log(`There are ${failed.length} failed illustrations`)
+    const rl = readline.createInterface({
+      input: process.stdin,
+      output: process.stdout,
+    });
+    console.info(`There are ${failed.length} failed illustrations`);
+
     rl.question("Do you want to retry saving ? Y/N", (result) => {
       if (result === "Y") {
-        handleIllus(failed)
+        handleIllus(failed);
       }
-    })
+    });
   }
-}
+};
 
 // eslint-disable-next-line func-names
 // eslint-disable-next-line wrap-iife
-(async function () {
+const updateIllus = async () => {
   try {
-    const illos = await getIllustrationList()
-    console.log(`There are ${illos.length} illustrations`)
-    handleIllus(illos)
+    const illus = await getIllustrationList();
+    console.info(`There are ${illus.length} illustrations`);
+    handleIllus(illus);
   } catch (error) {
-    console.log(error)
+    console.error(error);
   }
-})()
+};
+
+updateIllus();
