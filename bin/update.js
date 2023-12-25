@@ -1,10 +1,9 @@
-/* eslint-disable import/extensions */
 import { Command } from 'commander';
-import { existsSync } from "fs"
-import ora from 'ora'
-import readline from "readline"
+import { existsSync } from "fs";
+import ora from 'ora';
+import readline from "readline";
 
-import { getIllustrationList } from '../utils/getIllustrationList.js';
+import getIllustrationList from '../utils/getIllustrationList.js';
 import { getIlluFilePath, writeIlluFile } from '../utils/utils.js';
 
 const program = new Command();
