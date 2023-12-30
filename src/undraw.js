@@ -1,9 +1,9 @@
 /* eslint-disable no-underscore-dangle */
-import { applyIllustration } from "./utils"
-import VERSION from "./version"
+import { applyIllustration } from "./utils";
+import VERSION from "./version";
 
 class Undraw {
-  _observed = false
+  _observed = false;
 
   initialConfigs = {
     nameAttr: "data-ujs-name", // Custom attribute of nodes that specifies the name of the illustration
@@ -13,20 +13,20 @@ class Undraw {
     version: VERSION,
   }
 
-  maxRetry = 2
+  maxRetry = 2;
 
-  retryDelay = 2000
+  retryDelay = 2000;
 
   _initObserver = () => {
     if (!this._observed) {
-      const observerCongifs = { childList: true, subtree: true }
-      const observer = new MutationObserver(this._observerCallback)
-      observer.observe(document.body, observerCongifs)
-      this._observed = true // define dom is observed
+      const observerConfigs = { childList: true, subtree: true };
+      const observer = new MutationObserver(this._observerCallback);
+      observer.observe(document.body, observerConfigs);
+      this._observed = true; // define dom is observed
     }
-  }
+  };
 
-  _getQuerySelector = () => `img[${this.options.nameAttr}]:not([${this.options.doneAttr}])`
+  _getQuerySelector = () => `img[${this.options.nameAttr}]:not([${this.options.doneAttr}])`;
 
   _observerCallback = (mutations) => {
     // eslint-disable-next-line no-restricted-syntax
@@ -34,27 +34,27 @@ class Undraw {
       // eslint-disable-next-line no-restricted-syntax
       for (const addedNode of mutation.addedNodes) {
         if (addedNode.matches && addedNode.matches(this._getQuerySelector())) {
-          applyIllustration([addedNode], this.options)
+          applyIllustration([addedNode], this.options);
         } else if (addedNode.querySelectorAll) {
-          const nodes = addedNode.querySelectorAll(this._getQuerySelector())
+          const nodes = addedNode.querySelectorAll(this._getQuerySelector());
           if (nodes.length) {
-            applyIllustration(addedNode, this.options)
+            applyIllustration(addedNode, this.options);
           }
         }
       }
     }
-  }
+  };
 
   init = (options = {}) => {
-    this.options = { ...this.initialConfigs, ...options }
-    this._initObserver()
-    this.refresh()
-  }
+    this.options = { ...this.initialConfigs, ...options };
+    this._initObserver();
+    this.refresh();
+  };
 
   refresh = () => {
-    const nodes = document.querySelectorAll(this._getQuerySelector())
-    applyIllustration(nodes, this.options)
-  }
+    const nodes = document.querySelectorAll(this._getQuerySelector());
+    applyIllustration(nodes, this.options);
+  };
 }
 
-export default Undraw
+export default Undraw;
