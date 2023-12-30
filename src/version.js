@@ -1,2 +1,3 @@
-const VERSION = "1.0.2"
+// eslint-disable-next-line no-undef
+const VERSION = UNDRAW_JS_VERSION
 export default VERSION

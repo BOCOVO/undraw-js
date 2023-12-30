@@ -1,3 +1,10 @@
+const webpack = require("webpack");
+const packageJson = require("./package.json");
+
+const definePlugin = new webpack.DefinePlugin({
+  UNDRAW_JS_VERSION: JSON.stringify(packageJson.version),
+});
+
 module.exports = {
   mode: "production",
   entry: "./src/index.js",
@@ -18,4 +25,5 @@ module.exports = {
       },
     ],
   },
+  plugins: [definePlugin],
 };
