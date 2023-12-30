@@ -1,6 +1,6 @@
 {
   "name": "undraw-js",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Js library for Undraw illustration",
   "main": "index.js",
   "type": "module",
@@ -31,14 +31,14 @@
     "babel-loader": "^8.2.5",
     "cli-progress": "^3.11.1",
     "commander": "^9.3.0",
+    "eslint": "^7.32.0 || ^8.2.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.25.2",
     "jest": "^28.1.2",
+    "node-fetch": "^3.2.6",
     "ora": "^6.1.0",
     "webpack": "^5.70.0",
-    "webpack-cli": "^4.9.2",
-    "eslint": "^7.32.0 || ^8.2.0",
-    "node-fetch": "^3.2.6"
+    "webpack-cli": "^4.9.2"
   },
   "dependencies": {}
 }
