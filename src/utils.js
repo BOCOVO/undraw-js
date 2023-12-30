@@ -53,7 +53,7 @@ export const applyIllustration = (nodes, options) => {
         () => {
           if (fallImage) node.src = fallImage
           else if (!node.getAttribute("alt")) node.setAttribute("alt", illName)
-          console.log(`[undraw] failled to load illustration ${illName}`)
+          console.error(`[undraw] failed to load illustration ${illName}`)
         },
         illName,
         options,
