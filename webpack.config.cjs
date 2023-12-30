@@ -8,4 +8,14 @@ module.exports = {
   resolve: {
     extensions: [".js"],
   },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        resolve: {
+          fullySpecified: false,
+        },
+      },
+    ],
+  },
 };
