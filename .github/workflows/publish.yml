@@ -1,0 +1,34 @@
+name: Publish to npm
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.sha }}
+
+      - name: Get next version
+        id: get_next_version
+        uses: thenativeweb/get-next-version@main
+
+      - name: Publish
+        uses: actions/setup-node@v3
+        with:
+          node-version: "20.x"
+          registry-url: "https://registry.npmjs.org"
+      - run: |
+          yarn
+          yarn config set version-git-tag false
+          yarn version --new-version ${{ steps.get_next_version.outputs.version }}
+          yarn build
+          yarn publish --new-version ${{ steps.get_next_version.outputs.version }} 
+          echo ${{ steps.get_next_version.outputs.version }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
