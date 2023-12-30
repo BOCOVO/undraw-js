@@ -5,9 +5,11 @@ Undraw-js is a library allow you to add [undraw.co](https://undraw.co/illustrati
 ## How to use it ?
 
 - Installation
+
     ```html
     <script src="https://unpkg.com/undraw-js@1.0/index.min.js"></script>
     ```
+
     or use yarn or npm
 
     ```bash
@@ -19,11 +21,13 @@ Undraw-js is a library allow you to add [undraw.co](https://undraw.co/illustrati
     ```
 
 - Add some attribute to your `img` element
+
     ```html
     <img data-ujs-name="Ukraine" data-ujs-color="#f00" />
     ```
+
     About attributes
-    
+
     |Options | Description | Required|
     |--------|-------------|---------|
     |`data-ujs-name`| Input here the name of the illustration| `yes` |
@@ -37,12 +41,14 @@ Undraw-js is a library allow you to add [undraw.co](https://undraw.co/illustrati
         UndrawJS.init()
     </script>
     ```
+
     or
 
     ```js
       import UndrawJs from 'undraw-js'
       (new UndrawJs()).init()
     ```
+
 ## More customisation
 
 You can provide options to Undraw object
@@ -59,13 +65,13 @@ You can provide options to Undraw object
     UndrawJS.init(options); // or (new UndrawJs()).init(options) for module user
 ```
 
-## How to find illustration name ? 
- 
+## How to find illustration name ?
+
 Go to [undraw.co](https://undraw.co/illustrations) find illustration you need and copy its name
 
 ## Notes
+
 > Only the illustrations you add to your page are loaded.
 
-> Illustration not loaded ? Undraw is constantly evolving. If the illustration does not load, perhaps the version of undraw-js you are using is deployed before the creation of this illustration. To fix this, see if there is a version of undraw-js higher than the version you are using, if it is the last version you are using then wait for a new update. 
-
+> Illustration not loaded ? Undraw is constantly evolving. If the illustration does not load, perhaps the version of undraw-js you are using is deployed before the creation of this illustration. To fix this, see if there is a version of undraw-js higher than the version you are using, if it is the last version you are using then wait for a new update.
 > There are over 1300 illustrations that you can use
